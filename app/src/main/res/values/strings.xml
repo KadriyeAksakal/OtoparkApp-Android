@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">MobhisOtoparkApp</string>
+    <string name="plaka">Plaka Giriniz</string>
+    <string name="arac_girisi">Araç Girişi</string>
+    <string name="arac_cikisi">Araç Çıkışı</string>
+    <string name="islem_tamam">İşlem Tamam</string>
+    <string name="tum_sonuclar">Tüm sonuçları göster</string>
+    <string name="islem_bitir">İşlem Bitir</string>
+    <string name="giris_saati">Giriş Saati</string>
+    <string name="cikis_saati">Çıkış Saati</string>
+    <string name="gecen_sure">Geçen Süre</string>
+    <string name="ucret">Ücret</string>
 </resources>
