@@ -55,7 +55,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
     }
 
-    public boolean deletePlaka(int id){
+    public boolean deletePlaka(String id){
         database=getWritableDatabase();
         String DELETE_QUERY="DELETE FROM " + TABLE_NAME +"WHERE NAME '"+id+"' ";
         database.execSQL(DELETE_QUERY);

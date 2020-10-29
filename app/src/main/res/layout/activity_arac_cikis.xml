@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:background="@drawable/bg6"
+    android:background="#fff"
     tools:context=".AracCikisActivity">
 
     <ListView
@@ -15,6 +15,7 @@
         android:padding="5dp"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:background="#fff"
         android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

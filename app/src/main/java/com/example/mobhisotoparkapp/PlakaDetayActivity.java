@@ -15,8 +15,9 @@ import java.util.ArrayList;
 public class PlakaDetayActivity extends AppCompatActivity {
     TextView tvPlaka, tvGirisSaati, tvCikisSaati, tvGecenSure, tvUcret;
     Button btnIslemBitir;
-    int plakaId;
-    String id,plaka,girisSaati,cikisSaati,gecenSure,ucret;
+    Integer id;
+    Double ucret;
+    String plaka,girisSaati,cikisSaati,gecenSure;
     DatabaseHelper databaseHelper;
 
     @Override
@@ -32,19 +33,20 @@ public class PlakaDetayActivity extends AppCompatActivity {
 
         Intent intent=getIntent();
         if(intent != null){
-             id=intent.getStringExtra("plakaId");
+             id=intent.getExtras().getInt("plakaId");
              plaka=intent.getStringExtra("plaka");
              girisSaati=intent.getStringExtra("girisSaati");
              cikisSaati=intent.getStringExtra("cikisSaati");
              gecenSure=intent.getStringExtra("gecenSure");
-             ucret=intent.getStringExtra("ucret");
+             ucret=intent.getExtras().getDouble("ucret");
         }
-        final int getId=Integer.parseInt(id);
+        String getUcret=ucret.toString();
+        final String getId=id.toString();
         tvPlaka.setText(plaka);
         tvGirisSaati.setText(girisSaati);
         tvCikisSaati.setText(cikisSaati);
         tvGecenSure.setText(gecenSure);
-        tvUcret.setText(ucret);
+        tvUcret.setText(getUcret);
 
         //String id=getIntent().getStringExtra("id");
 
