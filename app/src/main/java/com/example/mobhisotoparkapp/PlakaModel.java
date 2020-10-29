@@ -16,15 +16,18 @@ public class PlakaModel {
 
     }
 
-    @Override
+   /* @Override
     public String toString() {
         return "PlakaModel{" +
                 "PLAKA_ID=" + PLAKA_ID +
                 ", PLAKA='" + PLAKA + '\'' +
                 ", GIRIS_SAATI='" + GIRIS_SAATI + '\'' +
                 '}';
-    }
-
+    }*/
+   @Override
+   public String toString() {
+       return PLAKA;
+   }
     public int getPLAKA_ID() {
         return PLAKA_ID;
     }

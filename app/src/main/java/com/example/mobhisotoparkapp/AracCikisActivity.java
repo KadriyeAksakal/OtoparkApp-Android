@@ -28,18 +28,12 @@ import java.util.Date;
 import java.util.List;
 
 public class AracCikisActivity extends AppCompatActivity {
-    EditText etCikisPlaka;
-    Button btnTumSonuclar;
-    ListView lvPlakalar;
-    Button btnAra;
-    List<PlakaModel> plakalar;
-    String gecenSure="d4fd4f";
-    Double ucret=0.0;
 
+    ListView lvPlakalar;
+    //String gecenSure;
+    Double ucret;
     PlakaModel pl;
-    DatabaseHelper databaseHelper;
-    CustomAdapter customAdapter;
-    ArrayList<PlakaModel> arrayList=new ArrayList<>();
+
 
 
     @Override
@@ -47,6 +41,7 @@ public class AracCikisActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_arac_cikis);
         lvPlakalar=findViewById(R.id.lv_Plakalar);
+
 
 
 
@@ -87,12 +82,22 @@ public class AracCikisActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 pl= (PlakaModel) plakaArrayAdapter.getItem(position);
-                //Intent detayintent=new Intent(getApplicationContext(),PlakaDetayActivity.class);
-                //detayintent.putExtra("id",plakalar.get(position).getPLAKA_ID());
-                //startActivityForResult(detayintent,1);
-                // pl=customAdapter.getItem(position);
+
                 SimpleDateFormat df=new SimpleDateFormat("hh:mm:ss"); //butona bastıgımdaki saati aliyorum
                 Date cikisSaati= new Date();
+
+                String cikis=String.valueOf(cikisSaati);
+                Double cikiszamani=Double.valueOf(cikis);
+                Double cikiszamani1=cikiszamani/1000;
+                Double giriszamani=Double.valueOf(pl.getGIRIS_SAATI());
+                Double giriszamani1=giriszamani/1000;
+                Double gecenzaman=0.0;
+                gecenzaman=cikiszamani1-giriszamani1;
+                String gecenSure=String.valueOf(gecenzaman);
+                //String gecenzaman="999.0";
+                Double sure=Double.valueOf(gecenzaman);
+                ucret=ucretHesaplama(sure);
+
                 Intent intent=new Intent(AracCikisActivity.this,PlakaDetayActivity.class);
                 intent.putExtra("plakaId",pl.getPLAKA_ID());
                 intent.putExtra("plaka",pl.getPLAKA());
@@ -100,7 +105,9 @@ public class AracCikisActivity extends AppCompatActivity {
                 intent.putExtra("cikisSaati",df.format(cikisSaati));
                 intent.putExtra("gecenSure",gecenSure);
                 intent.putExtra("ucret",ucret);
+
                 startActivity(intent);
+
 
 
             }
@@ -108,13 +115,27 @@ public class AracCikisActivity extends AppCompatActivity {
 
     }
 
-    /*private double ucretHesapla(Date girisSaati, Date cikisSaati){
-        double ucret;
-        String
-        ucret=girisSaati-cikisSaati;
-        return ucret;
+
+
+    private double ucretHesaplama(Double sure){
+        double ucretHesap=0.0;
+
+        if(sure <= 900){
+            ucretHesap = 0.0;
+        }
+        else if(sure > 900 && sure < 3600){
+            ucretHesap = 1.0;
+        }
+        else if(sure > 3600 && sure < 7200){
+            ucretHesap = 2.0;
+        }
+        else {
+            ucretHesap = 5.0;
+        }
+
+        return ucretHesap;
     }
-*/
+
 
 
 

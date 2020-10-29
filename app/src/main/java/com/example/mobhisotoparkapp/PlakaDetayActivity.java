@@ -48,7 +48,6 @@ public class PlakaDetayActivity extends AppCompatActivity {
         tvGecenSure.setText(gecenSure);
         tvUcret.setText(getUcret);
 
-        //String id=getIntent().getStringExtra("id");
 
 
 
@@ -56,16 +55,20 @@ public class PlakaDetayActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 databaseHelper=new DatabaseHelper(PlakaDetayActivity.this);
-                if(!databaseHelper.deletePlaka(getId)){
+                Integer deleteplaka=databaseHelper.deletePlaka(getId);
+                if(deleteplaka > 0){
                     Toast.makeText(PlakaDetayActivity.this, "Plaka çıkış işlemi gerçekleştirildi.",Toast.LENGTH_LONG).show();
                 }
                 else {
                     Toast.makeText(PlakaDetayActivity.this,"Plaka çıkış işlemi başarısız.",Toast.LENGTH_SHORT).show();
                 }
+                Intent intent=new Intent(PlakaDetayActivity.this,AracCikisActivity.class);
+                startActivity(intent);
 
             }
         });
 
     }
+
 
 }

@@ -55,11 +55,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
     }
 
-    public boolean deletePlaka(String id){
+    public Integer deletePlaka(String id){
         database=getWritableDatabase();
-        String DELETE_QUERY="DELETE FROM " + TABLE_NAME +"WHERE NAME '"+id+"' ";
+        /*String DELETE_QUERY="DELETE FROM " + TABLE_NAME +"WHERE NAME '"+id+"' ";
         database.execSQL(DELETE_QUERY);
-        return true;
+        return true;*/
+        return database.delete(TABLE_NAME,"ID=?",new String[]{id});
+
     }
 
     public List<PlakaModel> getEveryone(){
@@ -87,37 +89,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return returnList;
 
     }
-    //Select data
-    public ArrayList<PlakaModel> getAllPlakaData(){
-        ArrayList<PlakaModel> list =new ArrayList<>();
-        String SQL="SELECT * FROM "+TABLE_NAME;
-        SQLiteDatabase db=this.getWritableDatabase();
-        Cursor cursor=db.rawQuery(SQL,null);
-        if(cursor.moveToFirst()){
-            do{
-                PlakaModel pm=new PlakaModel();
-                pm.setPLAKA_ID(cursor.getInt(0));
-                pm.setPLAKA(cursor.getString(1));
-                pm.setGIRIS_SAATI(cursor.getString(2));
-                list.add(pm);
-            }while (cursor.moveToNext());
-        }
-        return list;
-    }
 
-
-    /*public List<Plaka> Listele(){
-        List<Plaka> plakalar=new ArrayList<>();
-        String VIEW_QUERY="SELECT * FROM "+TABLE_NAME;
-        database=this.getReadableDatabase();
-        Cursor cursor=database.rawQuery(VIEW_QUERY,null);
-        Plaka plaka=null;
-        if(cursor.moveToFirst()){
-            do{
-                plaka=new Plaka();
-                plaka.setPLAKA(cursor.getString(1));
-                plakalar.add(plaka);
-            }while (cursor.moveToNext());
-        }return plakalar;
-    }*/
 }

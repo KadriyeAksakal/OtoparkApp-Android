@@ -34,28 +34,12 @@ public class AracGirisActivity extends AppCompatActivity {
         btnGirisOnay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // String plaka=etGirisPlaka.getText().toString();
-               // long girisSaati = 0;
-               // girisSaati = System.currentTimeMillis();
-               // String giris= String.valueOf(girisSaati);
-               // System.out.println(giris);
-               // DateFormat dateFormatTime = android.text.format.DateFormat.getTimeFormat(context);
-               // String timeStr = dateFormatTime.format(date); android.text.format.DateFormat.getTimeFormat(context);
+
                 SimpleDateFormat df=new SimpleDateFormat("hh:mm:ss");
                 Date girisSaati= new Date();
                 PlakaModel plakaModel=new PlakaModel(-1,etGirisPlaka.getText().toString(),df.format(girisSaati));
                 Toast.makeText(AracGirisActivity.this,plakaModel.toString(),Toast.LENGTH_LONG).show();
                 databaseHelper.addPlaka(plakaModel);
-
-              /*  if(!TextUtils.isEmpty(plaka)){
-                    if(databaseHelper.addPlaka(new Plaka(plaka,giris))){
-                        Toast.makeText(AracGirisActivity.this, "Plaka başarı ile kaydedildi.", Toast.LENGTH_LONG).show();
-                    }
-                    else{
-                        Toast.makeText(AracGirisActivity.this, "Plaka kaydedilemedi.", Toast.LENGTH_SHORT).show();
-                    }
-
-                }*/
             }
         });
     }
