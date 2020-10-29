@@ -47,7 +47,7 @@ public class AracCikisActivity extends AppCompatActivity {
 
 
 
-        /*btnAra.setOnClickListener(new View.OnClickListener() {
+        /*/btnAra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SQLiteDatabase database=databaseHelper.getReadableDatabase();
