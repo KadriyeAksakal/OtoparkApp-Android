@@ -10,4 +10,6 @@
     <string name="cikis_saati">Çıkış Saati</string>
     <string name="gecen_sure">Geçen Süre</string>
     <string name="ucret">Ücret</string>
+    <string name="ara">Ara</string>
+    <string name="kaydet">KAYDET</string>
 </resources>
