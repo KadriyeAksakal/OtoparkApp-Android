@@ -86,19 +86,20 @@ public class AracCikisActivity extends AppCompatActivity {
                 SimpleDateFormat df=new SimpleDateFormat("hh:mm:ss"); //butona bastıgımdaki saati aliyorum
                 Date cikisSaati= new Date();
 
-/*                Double cikiszamani=Double.valueOf(cikis);
+/*              Double cikiszamani=Double.valueOf(cikis);
                 Double cikiszamani1=cikiszamani/1000;
                 Double giriszamani=Double.valueOf(pl.getGIRIS_SAATI());
                 Double giriszamani1=giriszamani/1000;
                 Double gecenzaman=0.0;
                 gecenzaman=cikiszamani1-giriszamani1;
                 String gecenSure=String.valueOf(gecenzaman);*/
+
                 String gecenzaman="999.0";
                 Double sure=Double.valueOf(gecenzaman);
                 ucret=ucretHesaplama(sure);
 
                 Intent intent=new Intent(AracCikisActivity.this,PlakaDetayActivity.class);
-                intent.putExtra("plakaId",pl.getPLAKA_ID());
+                intent.putExtra("plakaId",Integer.toString(pl.getPLAKA_ID()));
                 intent.putExtra("plaka",pl.getPLAKA());
                 intent.putExtra("girisSaati",pl.getGIRIS_SAATI());
                 intent.putExtra("cikisSaati",df.format(cikisSaati));

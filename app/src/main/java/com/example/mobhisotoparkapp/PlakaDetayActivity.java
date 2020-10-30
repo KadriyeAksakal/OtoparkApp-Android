@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class PlakaDetayActivity extends AppCompatActivity {
     TextView tvPlaka, tvGirisSaati, tvCikisSaati, tvGecenSure, tvUcret;
     Button btnIslemBitir;
-    Integer id;
+    String id;
     Double ucret;
     String plaka,girisSaati,cikisSaati,gecenSure;
     DatabaseHelper databaseHelper;
@@ -33,7 +33,7 @@ public class PlakaDetayActivity extends AppCompatActivity {
 
         Intent intent=getIntent();
         if(intent != null){
-             id=intent.getExtras().getInt("plakaId");
+             id=intent.getStringExtra("plakaId");
              plaka=intent.getStringExtra("plaka");
              girisSaati=intent.getStringExtra("girisSaati");
              cikisSaati=intent.getStringExtra("cikisSaati");
@@ -41,7 +41,7 @@ public class PlakaDetayActivity extends AppCompatActivity {
              ucret=intent.getExtras().getDouble("ucret");
         }
         String getUcret=ucret.toString();
-        final String getId=id.toString();
+        final int getId=Integer.valueOf(id);
         tvPlaka.setText(plaka);
         tvGirisSaati.setText(girisSaati);
         tvCikisSaati.setText(cikisSaati);
@@ -55,8 +55,8 @@ public class PlakaDetayActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 databaseHelper=new DatabaseHelper(PlakaDetayActivity.this);
-                Integer deleteplaka=databaseHelper.deletePlaka(getId);
-                if(deleteplaka > 0){
+                databaseHelper.deletePlaka(getId);
+                if(getId > -1){
                     Toast.makeText(PlakaDetayActivity.this, "Plaka çıkış işlemi gerçekleştirildi.",Toast.LENGTH_LONG).show();
                 }
                 else {

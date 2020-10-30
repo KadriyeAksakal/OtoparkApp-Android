@@ -55,13 +55,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
     }
 
-    public Integer deletePlaka(String id){
+  /*  public String deletePlaka(String id){
         database=getWritableDatabase();
-        /*String DELETE_QUERY="DELETE FROM " + TABLE_NAME +"WHERE NAME '"+id+"' ";
+        String DELETE_QUERY="DELETE FROM " + TABLE_NAME +"WHERE PLAKA_ID '"+id+"' ";
         database.execSQL(DELETE_QUERY);
-        return true;*/
+        //return true;
         return database.delete(TABLE_NAME,"ID=?",new String[]{id});
 
+    }*/
+
+    public void deletePlaka(int id){
+        database=this.getWritableDatabase();
+        database.delete(TABLE_NAME,COL_ID+" = ? ",new String[]{String.valueOf(id)});
     }
 
     public List<PlakaModel> getEveryone(){
@@ -74,7 +79,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()){
             do{
-                int plakaID=cursor.getInt(0);  //id'nin index numarasını alıyorum
+                int plakaID=Integer.parseInt(cursor.getString(0));  //id'nin index numarasını alıyorum
                 String plaka=cursor.getString(1);
                 String girisSaati=cursor.getString(2);
                 PlakaModel newPlaka = new PlakaModel(plakaID,plaka,girisSaati);
