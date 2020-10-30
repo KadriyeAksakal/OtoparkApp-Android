@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:layout_gravity="center"
-    android:background="#fff"
+    android:background="@drawable/bg"
     tools:context=".MainActivity">
 
     <ImageView
@@ -23,19 +23,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/parking"/>
+        android:src="@drawable/parking1"/>
 
     <Button
         android:id="@+id/btn_AracGiris"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="50dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:background="@color/buttonColor"
         android:text="@string/arac_girisi"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,17 +46,20 @@
 
     <Button
         android:id="@+id/btn_AracCikis"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="50dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:background="@color/buttonColor"
         android:text="@string/arac_cikisi"
+        android:textColor="#000"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_AracGiris" />
 

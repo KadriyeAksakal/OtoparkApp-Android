@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg6"
+    android:background="@drawable/bg"
     android:orientation="vertical"
     tools:context=".PlakaDetayActivity">
 
@@ -14,12 +14,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_weight="1"
         android:text=" "
-        android:textColor="@color/textViewColor"
+        android:textColor="#fff"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +36,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/linearLayoutColor"
+        android:background="@drawable/inner"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +49,7 @@
             android:orientation="vertical"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp">
@@ -56,16 +58,18 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:textColor="@color/textViewColor"
+                android:textStyle="bold"
+                android:textSize="18sp"
                 android:text="@string/giris_saati" />
 
             <TextView
                 android:id="@+id/tv_GirisSaati"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:textColor="@color/textViewColor"
+                android:textStyle="bold"
+                android:textSize="18sp"
                 android:text="" />
         </LinearLayout>
 
@@ -84,16 +88,18 @@
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:textColor="@color/textViewColor"
+                android:textStyle="bold"
+                android:textSize="18sp"
                 android:text="@string/cikis_saati" />
 
             <TextView
                 android:id="@+id/tv_CikisSaati"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:textColor="@color/textViewColor"
+                android:textStyle="bold"
+                android:textSize="18sp"
                 android:text=" " />
         </LinearLayout>
 
@@ -112,8 +118,9 @@
                 android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:textColor="@color/textViewColor"
+                android:textStyle="bold"
+                android:textSize="18sp"
                 android:text="@string/gecen_sure" />
 
             <TextView
@@ -121,6 +128,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/textViewColor"
+                android:textStyle="bold"
+                android:textSize="18sp"
                 android:text="" />
         </LinearLayout>
 
@@ -139,16 +148,18 @@
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:textColor="@color/textViewColor"
+                android:textStyle="bold"
+                android:textSize="18sp"
                 android:text="@string/ucret" />
 
             <TextView
                 android:id="@+id/tv_Ucret"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:textColor="@color/textViewColor"
+                android:textStyle="bold"
+                android:textSize="18sp"
                 android:text=" " />
 
         </LinearLayout>
@@ -159,6 +170,9 @@
             android:layout_height="wrap_content"
             android:background="@color/buttonColor"
             android:text="@string/islem_bitir"
+            android:textColor="@color/textViewColor"
+            android:textStyle="bold"
+            android:textSize="15sp"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="170dp"/>
 

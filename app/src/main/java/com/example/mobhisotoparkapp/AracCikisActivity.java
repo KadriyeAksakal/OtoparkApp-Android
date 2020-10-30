@@ -30,7 +30,7 @@ import java.util.List;
 public class AracCikisActivity extends AppCompatActivity {
 
     ListView lvPlakalar;
-    //String gecenSure;
+    String gecenSure="255";
     Double ucret;
     PlakaModel pl;
 
@@ -86,15 +86,14 @@ public class AracCikisActivity extends AppCompatActivity {
                 SimpleDateFormat df=new SimpleDateFormat("hh:mm:ss"); //butona bastıgımdaki saati aliyorum
                 Date cikisSaati= new Date();
 
-                String cikis=String.valueOf(cikisSaati);
-                Double cikiszamani=Double.valueOf(cikis);
+/*                Double cikiszamani=Double.valueOf(cikis);
                 Double cikiszamani1=cikiszamani/1000;
                 Double giriszamani=Double.valueOf(pl.getGIRIS_SAATI());
                 Double giriszamani1=giriszamani/1000;
                 Double gecenzaman=0.0;
                 gecenzaman=cikiszamani1-giriszamani1;
-                String gecenSure=String.valueOf(gecenzaman);
-                //String gecenzaman="999.0";
+                String gecenSure=String.valueOf(gecenzaman);*/
+                String gecenzaman="999.0";
                 Double sure=Double.valueOf(gecenzaman);
                 ucret=ucretHesaplama(sure);
 
