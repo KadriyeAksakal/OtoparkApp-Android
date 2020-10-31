@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
+
 
 import androidx.annotation.Nullable;
 
@@ -94,5 +94,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return returnList;
 
     }
+
+    //Plaka arama
+    public void searchPlaka(String arananplaka){
+        List<String> plakaList=new ArrayList<>();
+        SQLiteDatabase database=this.getReadableDatabase();
+        Cursor cursor =database.rawQuery("SELECT PLAKA FROM OTOPARK WHERE PLAKA LIKE '"+arananplaka+"' ",null);
+        if(cursor != null){
+            if(cursor.moveToFirst()){
+                do{
+                    int plakaID=Integer.parseInt(cursor.getString(0));  //id'nin index numarasını alıyorum
+                    String plaka=cursor.getString(1);
+                    plakaList.add(plaka);
+
+                }while(cursor.moveToNext());
+
+            }else {}
+
+        }cursor.close();
+        database.close();
+    }
+
+
+
+
+
+    //Benzer verileri de listelemek için
+  /*  public Cursor searchPlaka(String text){
+        SQLiteDatabase db=this.getReadableDatabase();
+        String query="SELECT * FROM "+TABLE_NAME+" WHERE "+COL_NAME+" LIKE '%"+text+"%'";
+        Cursor cursor=db.rawQuery(query,null);
+        return cursor;
+    }*/
 
 }

@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -36,8 +37,10 @@ public class AracGirisActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 SimpleDateFormat df=new SimpleDateFormat("hh:mm:ss");
-                Date girisSaati= new Date();
-                PlakaModel plakaModel=new PlakaModel(-1,etGirisPlaka.getText().toString(),df.format(girisSaati));
+                Date girisSaati= Calendar.getInstance().getTime();
+                String strgiris=df.format(girisSaati);
+
+                PlakaModel plakaModel=new PlakaModel(-1,etGirisPlaka.getText().toString(),strgiris);
                 Toast.makeText(AracGirisActivity.this,plakaModel.toString(),Toast.LENGTH_LONG).show();
                 databaseHelper.addPlaka(plakaModel);
             }

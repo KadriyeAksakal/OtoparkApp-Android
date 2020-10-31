@@ -10,19 +10,22 @@
     android:textStyle="bold"
     tools:context=".AracCikisActivity">
 
-    <ListView
-        android:id="@+id/lv_Plakalar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="5dp"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:background="@drawable/inner"
-        android:textColor="@color/textViewColor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.347"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.462" />
+
+        <ListView
+            android:id="@+id/lv_Plakalar"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:padding="5dp"
+            android:textColor="@color/textViewColor"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:background="@drawable/inner"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.347"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.462">
+
+        </ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,6 +24,7 @@ public class PlakaModel {
                 ", GIRIS_SAATI='" + GIRIS_SAATI + '\'' +
                 '}';
     }*/
+
    @Override
    public String toString() {
        return PLAKA;
