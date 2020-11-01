@@ -42,18 +42,16 @@ public class PlakaDetayActivity extends AppCompatActivity {
 
         Intent intent=getIntent();
         if(intent != null){
-             id=intent.getStringExtra("plakaId");
-             plaka=intent.getStringExtra("plaka");
-             girisSaati=intent.getStringExtra("girisSaati");
-             cikisSaati=intent.getStringExtra("cikisSaati");
-            // gecenSure=intent.getStringExtra("gecenSure");
-             //ucret=intent.getExtras().getDouble("ucret");
+             id=intent.getStringExtra("plakaId: ");
+             plaka=intent.getStringExtra("plaka: ");
+             girisSaati=intent.getStringExtra("girisSaati: ");
+             cikisSaati=intent.getStringExtra("cikisSaati: ");
         }
 
         final int getId=Integer.valueOf(id);
         tvPlaka.setText(plaka);
-        tvGirisSaati.setText(girisSaati);
-        tvCikisSaati.setText(cikisSaati);
+        tvGirisSaati.setText(" : " + girisSaati);
+        tvCikisSaati.setText(" : " + cikisSaati);
 
 
 
@@ -62,7 +60,7 @@ public class PlakaDetayActivity extends AppCompatActivity {
         DateFormat format=new SimpleDateFormat("hh:mm:ss");
         //Date date;
 
-        try{
+        try{  //cikis saatini string tipinden date tipine formatlıyorum
             date=format.parse(cikisSaati);
         }catch (ParseException e) {
             e.printStackTrace();
@@ -70,7 +68,7 @@ public class PlakaDetayActivity extends AppCompatActivity {
         }
 
         //Date date1;
-        try {
+        try {  //giris saatini string tipinden date tipine formatlıyorum
             date1=format.parse(girisSaati);
         }catch (ParseException e){
             e.printStackTrace();
@@ -79,15 +77,15 @@ public class PlakaDetayActivity extends AppCompatActivity {
         Long giriszamani=getTimeStamp2();
         Long cikiszamani=getTimeStamp();
         Long gecensure=getGecenSure(cikiszamani,giriszamani);
+
         Double sure=Double.valueOf(gecensure);
         ucret=ucretHesaplama(sure);
-
         String getUcret=String.valueOf(ucret);
-        String getSure=String.valueOf(sure);
+        String getSure=String.valueOf(gecensure);
 
 
-        tvUcret.setText(getUcret);
-        tvGecenSure.setText(getSure);
+        tvUcret.setText(" : " + getUcret + " " + "TL");
+        tvGecenSure.setText(" : " + getSure +" "+ " dakika");
 
 
 
@@ -112,33 +110,37 @@ public class PlakaDetayActivity extends AppCompatActivity {
     }
 
 
-    public String getTime(){
-        calendar.setTime(this.date);
-        String cikiszamanisaat=String.valueOf(calendar.get(Calendar.HOUR_OF_DAY));
-        String cikiszamaniminute=String.valueOf(calendar.get(Calendar.MINUTE));
+    public String getTime(){  //String tipinde alıp saat, dakika ,saniye olarak ayırıyorum. Tek basamakli ise basina 0 koyuyorum.
+        calendar.setTime(this.date); //takvime date olarak saat verisi ekliyorum
+        String cikiszamanisaat = String.valueOf(calendar.get(Calendar.HOUR_OF_DAY));
+        String cikiszamanidakika = String.valueOf(calendar.get(Calendar.MINUTE));
         if(cikiszamanisaat.length() == 1){
             cikiszamanisaat = "0" + cikiszamanisaat;
         }
-        if(cikiszamaniminute.length() == 1){
-            cikiszamaniminute = "0" + cikiszamaniminute;
+        if(cikiszamanidakika.length() == 1){
+            cikiszamanidakika = "0" + cikiszamanidakika;
         }
-        return cikiszamanisaat + ":" + cikiszamaniminute;
+
+        return cikiszamanisaat + ":" + cikiszamanidakika;
     }
 
-    public Long getTimeStamp(){
+    public Long getTimeStamp(){ //zamani long tipine çeviriyorum.
         return this.date.getTime();
     }
+
+
     public String getTime2(){
         calendar.setTime(date1);
         String giriszamanisaat=String.valueOf(calendar.get(Calendar.HOUR_OF_DAY));
-        String giriszamaniminute=String.valueOf(calendar.get(Calendar.MINUTE));
+        String giriszamanidakika=String.valueOf(calendar.get(Calendar.MINUTE));
+
         if(giriszamanisaat.length() == 1){
             giriszamanisaat = "0" + giriszamanisaat;
         }
-        if(giriszamaniminute.length() == 1){
-            giriszamaniminute = "0" + giriszamaniminute;
+        if(giriszamanidakika.length() == 1){
+            giriszamanidakika = "0" + giriszamanidakika;
         }
-        return giriszamanisaat + ":" + giriszamaniminute;
+        return giriszamanisaat + ":" + giriszamanidakika;
     }
     public Long getTimeStamp2(){
         return this.date1.getTime();

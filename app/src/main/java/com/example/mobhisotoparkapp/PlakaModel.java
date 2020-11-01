@@ -12,7 +12,7 @@ public class PlakaModel {
         this.GIRIS_SAATI=girisSaati;
 
     }
-    public PlakaModel(){
+    public PlakaModel( ){
 
     }
 

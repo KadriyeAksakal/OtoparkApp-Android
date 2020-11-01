@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:layout_gravity="center"
-    android:background="@drawable/bg"
+    android:background="@drawable/back1"
     tools:context=".MainActivity">
 
     <ImageView
@@ -39,6 +39,7 @@
         android:textColor="#000"
         android:textStyle="bold"
         android:textSize="15sp"
+        
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

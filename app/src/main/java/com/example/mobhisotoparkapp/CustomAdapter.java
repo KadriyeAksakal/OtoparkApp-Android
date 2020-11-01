@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.zip.Inflater;
 
 //extends etme BaseAdapter in bütün özelliklerini kullanabiliyor(hepsini kullanmak zorunda değil)
@@ -17,15 +18,16 @@ import java.util.zip.Inflater;
 public class CustomAdapter extends BaseAdapter {
     private Activity activity;
     private LayoutInflater inflater; //layoutInflater xml deki nesneyi view olarak gösteriyor.
-    private ArrayList<PlakaModel> Items;
+    private List<PlakaModel> Items;
 
     TextView tvPlaka,tvGirisSaati,tvCikisSaati,tvGecenSure,tvUcret;
 
-    public CustomAdapter(Activity activity, ArrayList<PlakaModel> Itmes){
+    public CustomAdapter(Activity activity, List Items){
         this.activity=activity;
-        this.Items=Itmes;
+        this.Items=Items;
 
     }
+
 
     @Override
     public int getCount() {
@@ -52,7 +54,7 @@ public class CustomAdapter extends BaseAdapter {
             //alınan plakaList bu sayfadaki veriye esitleniyor.
         }
         if(convertView == null){
-            convertView = inflater.inflate(android.R.layout.simple_expandable_list_item_1, null);
+            convertView = inflater.inflate(android.R.layout.simple_list_item_1, null);
         }
         tvPlaka=convertView.findViewById(R.id.tv_Plaka);
         tvGirisSaati=convertView.findViewById(R.id.tv_GirisSaati);

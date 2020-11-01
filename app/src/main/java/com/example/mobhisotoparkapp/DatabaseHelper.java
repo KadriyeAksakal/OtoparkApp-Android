@@ -55,14 +55,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
     }
 
-  /*  public String deletePlaka(String id){
-        database=getWritableDatabase();
-        String DELETE_QUERY="DELETE FROM " + TABLE_NAME +"WHERE PLAKA_ID '"+id+"' ";
-        database.execSQL(DELETE_QUERY);
-        //return true;
-        return database.delete(TABLE_NAME,"ID=?",new String[]{id});
 
-    }*/
 
     public void deletePlaka(int id){
         database=this.getWritableDatabase();
@@ -95,17 +88,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+
+    public List<PlakaModel> search(String keyword) {
+        List<PlakaModel> plakalar = null;
+        try {
+            SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+            Cursor cursor = sqLiteDatabase.rawQuery("SELECT PLAKA FROM " + TABLE_NAME + " WHERE " + COL_NAME + " like ?", new String[] { "%" + keyword + "%" });
+            if (cursor.moveToFirst()) {
+                plakalar = new ArrayList<PlakaModel>();
+                do {
+                    PlakaModel plaka = new PlakaModel();
+                    plaka.setPLAKA_ID(cursor.getInt(0));
+                    plaka.setPLAKA(cursor.getString(1));
+                    plaka.setGIRIS_SAATI(cursor.getString(2));
+                    plakalar.add(plaka);
+                } while (cursor.moveToNext());
+            }
+        } catch (Exception e) {
+            plakalar = null;
+        }
+        return plakalar;
+    }
+
+
     //Plaka arama
-    public void searchPlaka(String arananplaka){
-        List<String> plakaList=new ArrayList<>();
+  /*  public void searchPlaka(String arananplaka){
+        List<PlakaModel> plakaList=new ArrayList<>();
         SQLiteDatabase database=this.getReadableDatabase();
         Cursor cursor =database.rawQuery("SELECT PLAKA FROM OTOPARK WHERE PLAKA LIKE '"+arananplaka+"' ",null);
         if(cursor != null){
             if(cursor.moveToFirst()){
                 do{
-                    int plakaID=Integer.parseInt(cursor.getString(0));  //id'nin index numarasını alıyorum
                     String plaka=cursor.getString(1);
-                    plakaList.add(plaka);
+                    PlakaModel newPlaka = new PlakaModel(plaka);
+                    plakaList.add(newPlaka);
 
                 }while(cursor.moveToNext());
 
@@ -113,7 +129,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         }cursor.close();
         database.close();
-    }
+    }*/
 
 
 
